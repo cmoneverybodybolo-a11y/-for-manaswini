@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Manaswini 💖</title>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding-top: 80px;
+    color: white;
+    overflow: hidden;
+  }
+
+  h1 { font-size: 40px; }
+  p { font-size: 22px; }
+
+  button {
+    font-size: 18px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .yes { background: white; color: #ff4d6d; }
+  .no {
+    background: #ff4d6d;
+    color: white;
+    position: absolute;
+  }
+
+  #secondPage {
+    display: none;
+    margin-top: 20px;
+  }
+
+  img {
+    width: 260px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .heart {
+    position: fixed;
+    animation: float 6s linear infinite;
+    font-size: 20px;
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+<div id="firstPage">
+  <h1>Hey Manaswini 💖</h1>
+  <p>I have something important to ask you…</p>
+
+  <button class="yes" onclick="yesClicked()">Yes 💕</button>
+  <button class="no" onmouseover="moveButton()">No 🙈</button>
+</div>
+
+<!-- SECOND PAGE -->
+<div id="secondPage">
+  <h1>YAYYYY 🥰💞</h1>
+  <p>You just made my heart smile 💖</p>
+
+  <img src="cat.gif" alt="Cute cats">
+
+  <div class="footer">
+    — With lots of love, <b>Tanuj</b> 💗
+  </div>
+</div>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function yesClicked() {
+  document.getElementById("firstPage").style.display = "none";
+  document.getElementById("secondPage").style.display = "block";
+  document.getElementById("bgm").play();
+
+  // hearts
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = (16 + Math.random()*20) + "px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }, 400);
+}
+
+function moveButton() {
+  const b = document.querySelector(".no");
+  b.style.left = Math.random()*80 + "vw";
+  b.style.top = Math.random()*80 + "vh";
+}
+</script>
+
+</body>
+  </html>
